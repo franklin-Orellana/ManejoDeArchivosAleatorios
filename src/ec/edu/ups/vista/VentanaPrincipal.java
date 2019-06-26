@@ -4,16 +4,15 @@
  * and open the template in the editor.
  */
 package ec.edu.ups.vista;
-
+import ec.edu.ups.vista.VentanaCrearPersona;
+import ec.edu.ups.vista.VentanaBuscarPersona;
 /**
  *
  * @author Fernanda
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
-
-    /**
-     * Creates new form VentanaPrincipal
-     */
+private VentanaCrearPersona ventanaCrearPersona;
+private VentanaBuscarPersona ventanaBuscarPersona;
     public VentanaPrincipal() {
         initComponents();
     }
@@ -44,16 +43,31 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         openMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
         openMenuItem.setMnemonic('o');
         openMenuItem.setText("Crear");
+        openMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                openMenuItemActionPerformed(evt);
+            }
+        });
         fileMenu.add(openMenuItem);
 
         saveMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
         saveMenuItem.setMnemonic('s');
         saveMenuItem.setText("Actualizar");
+        saveMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveMenuItemActionPerformed(evt);
+            }
+        });
         fileMenu.add(saveMenuItem);
 
         saveAsMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.CTRL_MASK));
         saveAsMenuItem.setMnemonic('a');
         saveAsMenuItem.setText("Buscar");
+        saveAsMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveAsMenuItemActionPerformed(evt);
+            }
+        });
         fileMenu.add(saveAsMenuItem);
 
         exitMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
@@ -68,6 +82,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem1.setText("Listar");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         fileMenu.add(jMenuItem1);
 
         menuBar.add(fileMenu);
@@ -92,9 +111,39 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void exitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuItemActionPerformed
-        System.exit(0);
+        VentanaEliminarPersona ventanaEliminarPersona = new VentanaEliminarPersona();
+        ventanaEliminarPersona.setVisible(true);
+        desktopPane.add(ventanaEliminarPersona);
     }//GEN-LAST:event_exitMenuItemActionPerformed
 
+    private void openMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openMenuItemActionPerformed
+        // TODO add your handling code here:
+        VentanaCrearPersona ventanaCrearPersona = new VentanaCrearPersona();
+        ventanaCrearPersona.setVisible(true);
+        desktopPane.add(ventanaCrearPersona);
+        
+    }//GEN-LAST:event_openMenuItemActionPerformed
+
+    private void saveAsMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveAsMenuItemActionPerformed
+        // TODO add your handling code here:
+        VentanaBuscarPersona ventanaBuscarPersona = new VentanaBuscarPersona();
+        ventanaBuscarPersona.setVisible(true);
+        desktopPane.add(ventanaBuscarPersona);
+    }//GEN-LAST:event_saveAsMenuItemActionPerformed
+
+    private void saveMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveMenuItemActionPerformed
+        // TODO add your handling code here:
+        VentanaActualizarPersona ventanaActualizarPersona = new VentanaActualizarPersona();
+        ventanaActualizarPersona.setVisible(true);
+        desktopPane.add(ventanaActualizarPersona);
+    }//GEN-LAST:event_saveMenuItemActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    
     /**
      * @param args the command line arguments
      */
