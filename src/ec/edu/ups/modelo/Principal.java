@@ -11,7 +11,7 @@ public class Principal {
     private String apellido;
     private String cedula;
     private int edad;
-    private String fechaNacimineto;
+    private Date fechaNacimineto;
     private String celular;
     private double salario;
 
@@ -19,7 +19,7 @@ public class Principal {
 
     }
 
-    public Principal(String nombre, String apellido, String cedula, int edad, String fechaNacimineto, String celular, double salario) {
+    public Principal(String nombre, String apellido, String cedula, int edad, Date fechaNacimineto, String celular, double salario) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.cedula = cedula;
@@ -106,16 +106,12 @@ public class Principal {
         }
     }
 
-    public String getFechaNacimineto() {
+    public Date getFechaNacimineto() {
         return fechaNacimineto;
     }
 
-    public void setFechaNacimineto(String fechaNacimineto) throws Exception {
-        if (fechaNacimineto.contains("/")) {
-            this.fechaNacimineto = fechaNacimineto;
-        } else {
-            throw new Exception("Fecha incorrecta");
-        }
+    public void setFechaNacimineto(Date fechaNacimineto)  {
+
     }
 
     public String getCelular() {
