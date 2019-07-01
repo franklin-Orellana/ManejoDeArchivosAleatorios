@@ -5,7 +5,7 @@ import java.io.RandomAccessFile;
 import java.util.Date;
 import javax.swing.JOptionPane;
 
-public class Principal {
+public class Persona {
 
     private String nombre;
     private String apellido;
@@ -15,11 +15,11 @@ public class Principal {
     private String celular;
     private double salario;
 
-    public Principal() {
+    public Persona() {
 
     }
 
-    public Principal(String nombre, String apellido, String cedula, int edad, Date fechaNacimineto, String celular, double salario) {
+    public Persona(String nombre, String apellido, String cedula, int edad,Date fechaNacimineto, String celular, double salario) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.cedula = cedula;
@@ -105,13 +105,13 @@ public class Principal {
             System.out.println("Edad no permitida");
         }
     }
-
+    
     public Date getFechaNacimineto() {
         return fechaNacimineto;
     }
 
     public void setFechaNacimineto(Date fechaNacimineto)  {
-
+      this.fechaNacimineto = fechaNacimineto;
     }
 
     public String getCelular() {
@@ -171,5 +171,12 @@ public class Principal {
         }
 
     }
+
+    @Override
+    public String toString() {
+        return "Persona{" + "nombre=" + nombre + ", apellido=" + apellido + ", cedula=" + cedula + ", edad=" + edad + ", fechaNacimineto=" + fechaNacimineto + ", celular=" + celular + ", salario=" + salario + '}';
+    }
+    
+    
 
 }

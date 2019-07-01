@@ -3,16 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ec.edu.ups.Controlador;
-import ec.edu.ups.Controlador.ControladorPersona;
-import ec.edu.ups.modelo.Principal;
+package ec.edu.ups.ControladorPersona;
+import ec.edu.ups.ControladorPersona.ControladorPersona;
+import ec.edu.ups.modelo.Persona;
 /**
  *
  * @author Fernanda
  */
 public class Prueba {
     public static void main(String[] args) {
-        Principal persona = new Principal("Franklin", "Orellana", "0105599915", 22, new java.util.Date(), "099850306", 120.30);
+        Persona persona = new Persona("Franklin", "Orellana", "0105599916", 22, new java.util.Date(), "099850306", 120.30);
         ControladorPersona cp = new ControladorPersona();
         cp.crear(persona);
     }

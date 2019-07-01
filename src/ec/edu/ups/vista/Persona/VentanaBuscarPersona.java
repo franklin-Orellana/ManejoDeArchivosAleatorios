@@ -3,14 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ec.edu.ups.vista;
-import ec.edu.ups.modelo.Principal;
+package ec.edu.ups.vista.Persona;
+import ec.edu.ups.modelo.Persona;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import ec.edu.ups.ControladorPersona.ControladorPersona;
 /**
  *
  * @author Fernanda
@@ -41,7 +42,6 @@ public class VentanaBuscarPersona extends javax.swing.JInternalFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        txtCodigo = new javax.swing.JTextField();
         txtApellido = new javax.swing.JTextField();
         txtCedula = new javax.swing.JTextField();
         txtEdad = new javax.swing.JTextField();
@@ -50,7 +50,6 @@ public class VentanaBuscarPersona extends javax.swing.JInternalFrame {
         txtFecha = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        Codigo = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
 
         setClosable(true);
@@ -94,8 +93,6 @@ public class VentanaBuscarPersona extends javax.swing.JInternalFrame {
         jLabel7.setText("SALARIO");
         jLabel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        txtCodigo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-
         txtApellido.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtApellido.setEnabled(false);
 
@@ -130,11 +127,6 @@ public class VentanaBuscarPersona extends javax.swing.JInternalFrame {
             }
         });
 
-        Codigo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        Codigo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Codigo.setText("CODIGO");
-        Codigo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
         txtNombre.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtNombre.setEnabled(false);
 
@@ -164,15 +156,11 @@ public class VentanaBuscarPersona extends javax.swing.JInternalFrame {
                                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(27, 27, 27)
-                                    .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(txtSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(Codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addGap(132, 132, 132)
                                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -191,16 +179,10 @@ public class VentanaBuscarPersona extends javax.swing.JInternalFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(21, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(Codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -245,40 +227,57 @@ public class VentanaBuscarPersona extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String ruta ="archivo.ups";
-        try{
+        ControladorPersona controladorPersona = new ControladorPersona();
+        
+        Persona persona = new Persona();
+        try {
+            persona = controladorPersona.buscar(String.valueOf(txtCedula.getText()));
+            txtNombre.setText(persona.getNombre());
+            txtApellido.setText(persona.getApellido());
+            txtCelular.setText(persona.getCelular());
+            txtEdad.setText(String.valueOf(persona.getEdad()));
+            txtSalario.setText(String.valueOf(persona.getSalario()));
+            } catch (Exception ex) {
+            Logger.getLogger(VentanaBuscarPersona.class.getName()).log(Level.SEVERE, null, ex);
+        }
+                  
+            
+            /*
+            String ruta ="archivo.ups";
+            try{
             RandomAccessFile archivo = new RandomAccessFile(ruta, "rw");
             int pos = Integer.parseInt(txtCodigo.getText())*152;
             archivo.seek(pos);
             
-                txtNombre.setText(archivo.readUTF().trim());
-                archivo.seek(pos + 52);
-                txtApellido.setText(archivo.readUTF().trim());
-                archivo.seek(pos + 104);
-                txtCedula.setText(archivo.readUTF());
-                archivo.seek(pos + 116);
-                txtEdad.setText(String.valueOf(archivo.readInt()));
-                archivo.seek(pos + 120);
-                txtFecha.setText(archivo.readUTF());
-                archivo.seek(pos + 132);
-                txtCelular.setText(archivo.readUTF());
-                archivo.seek(pos + 144);
-                txtSalario.setText(String.valueOf(archivo.readDouble()));
-                
-                archivo.close();
-        }catch(FileNotFoundException ex){
+            txtNombre.setText(archivo.readUTF().trim());
+            archivo.seek(pos + 52);
+            txtApellido.setText(archivo.readUTF().trim());
+            archivo.seek(pos + 104);
+            txtCedula.setText(archivo.readUTF());
+            archivo.seek(pos + 116);
+            txtEdad.setText(String.valueOf(archivo.readInt()));
+            archivo.seek(pos + 120);
+            txtFecha.setText(archivo.readUTF());
+            archivo.seek(pos + 132);
+            txtCelular.setText(archivo.readUTF());
+            archivo.seek(pos + 144);
+            txtSalario.setText(String.valueOf(archivo.readDouble()));
+            
+            archivo.close();
+            }catch(FileNotFoundException ex){
             Logger.getLogger(VentanaBuscarPersona.class.getName()).log(Level.SEVERE, null, ex);
-        }catch(IOException e){
+            }catch(IOException e){
             System.out.println("Error de Escritura");
-        }
+            }
+            */
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -289,7 +288,6 @@ public class VentanaBuscarPersona extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Codigo;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -303,7 +301,6 @@ public class VentanaBuscarPersona extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtCedula;
     private javax.swing.JTextField txtCelular;
-    private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtEdad;
     private javax.swing.JTextField txtFecha;
     private javax.swing.JTextField txtNombre;

@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ec.edu.ups.vista;
-import ec.edu.ups.vista.VentanaCrearPersona;
-import ec.edu.ups.vista.VentanaBuscarPersona;
+package ec.edu.ups.vista.Persona;
+import ec.edu.ups.vista.Persona.VentanaCrearPersona;
+import ec.edu.ups.vista.Persona.VentanaBuscarPersona;
 /**
  *
  * @author Fernanda
